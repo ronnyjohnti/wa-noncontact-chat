@@ -1,0 +1,14 @@
+{
+	"name": "WhatsApp Non-Contact Chat",
+	"description": "Extension to start a chat on WhatsApp Web with Non Contact",
+	"version": "1.0",
+	"manifest_version": 3,
+	"permissions": ["activeTab","scripting"],
+	"content_scripts": [
+		{
+			"js": ["script.js"],
+			"css": ["style.css"],
+			"matches": ["*://web.whatsapp.com/*"]
+		}
+	]
+}
