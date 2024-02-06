@@ -8,3 +8,32 @@
     height: 100%;
     z-index: 155;
 }
+
+#phoneNumberPopup {
+    background: rgb(34, 46, 53);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #00a884;
+    z-index: 2;
+}
+
+#bgContainerPhoneNumber {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#phoneNumberPopup a {
+    background: #00a884;
+    color: rgb(34, 46, 53);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#phoneNumberPopup input {
+    background: #202c33;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+}

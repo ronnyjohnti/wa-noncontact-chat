@@ -32,22 +32,22 @@ const renderButton = iconsContainer => {
 
 const renderPhoneNumberPopup = () => {
     const containerPhoneNumber = document.createElement('div')
+    const removeContainerPhoneNumber = () => document.querySelector('.containerPhoneNumber').remove()
+
     containerPhoneNumber.classList.add('containerPhoneNumber')
     containerPhoneNumber.innerHTML = `<div id="phoneNumberPopup">
-        <input name="phoneNumber">
-        <a href="whatsapp://send?phone=5585992132311" role="button" aria-roledescription="Start Chat With Non Contact" onclick="removePhoneNumberPopup">Conversar</a>
-    </div>`
+        <input name="phoneNumber" value="55">
+        <a href="whatsapp://send?phone=" role="button" aria-roledescription="Start Chat With Non Contact">Conversar</a>
+    </div>
+    <div id="bgContainerPhoneNumber"></div>`
+
+    containerPhoneNumber.children[0].children[0].addEventListener('input', e => {
+        containerPhoneNumber.children[0].children[1].href = `whatsapp://send?phone=${e.target.value}`
+    })
+    containerPhoneNumber.children[0].children[0].addEventListener('keypress', e => e.key === 'Enter' ? e.target.parentNode.children[1].click() : '')
+    containerPhoneNumber.children[0].children[1].addEventListener('click', removeContainerPhoneNumber)
+    containerPhoneNumber.children[1].addEventListener('click', removeContainerPhoneNumber)
 
     document.querySelector('.two._1jJ70').append(containerPhoneNumber)
-}
-
-const removePhoneNumberPopup = (event) => {
-    event.
-    document.querySelector('.containerPhoneNumber').remove()
-    // document.querySelector('._3NdAd').remove()
-    // document.querySelector('._1sPvB._2XdMx>span').prepend(document.querySelector('._3NdAd'))
-    // document.querySelector('._1sPvB._2XdMx>span').prepend(document.querySelector('.containerPhoneNumber'))
-    // document.querySelector('._1sPvB._2XdMx>span').prepend(document.querySelector('._1sPvB._2XdMx>span>div._3NdAd'))
-    // document.querySelector('._1sPvB._2XdMx>span').prepend(document.querySelector('._1sPvB._2XdMx>span>div.containerPhoneNumber'))
-    // document.querySelector('._1sPvB._2XdMx>span').prepend(document.querySelector('._1sPvB._2XdMx>span>div._3NdAd>div._3OtEr'))
+    containerPhoneNumber.children[0].children[0].focus()
 }
