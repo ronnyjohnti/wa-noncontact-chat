@@ -1,9 +1,9 @@
 (() => {
-    let iconsContainer = document.querySelector('._1sPvB._2XdMx>span');
+    let iconsContainer = document.querySelector('header>div:nth-child(2)>div>span');
 
     if(!iconsContainer) {
-        const intervalId = setInterval(function () {
-            iconsContainer = document.querySelector('._1sPvB._2XdMx>span');
+        const intervalId = setInterval(() => {
+            iconsContainer = document.querySelector('header>div:nth-child(2)>div>span');
             if(iconsContainer) {
                 clearInterval(intervalId)
                 renderButton(iconsContainer)
@@ -14,9 +14,10 @@
 
 const renderButton = iconsContainer => {
     const iconNonContactChat = document.createElement('div')
-    iconNonContactChat.classList.add('_3NdAd')
-    iconNonContactChat.innerHTML = `<div class="_3OtEr">
-        <div aria-disabled="false" role="button" tabindex="0" class="_3ndVb fbgy3m38 ft2m32mm oq31bsqd nu34rnf1" data-tab="2" title="New Chat" aria-label="New Chat" id="startNonContactChat">
+    const siblingIcon = iconsContainer.children[1]
+    iconNonContactChat.classList = siblingIcon.classList
+    iconNonContactChat.innerHTML = `<div class="${siblingIcon.classList.value}">
+        <div aria-disabled="false" role="button" tabindex="0" class="${siblingIcon.children[0].classList.value}" data-tab="2" title="New Chat" aria-label="New Chat" id="startNonContactChat">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
             </svg>
@@ -48,6 +49,6 @@ const renderPhoneNumberPopup = () => {
     containerPhoneNumber.children[0].children[1].addEventListener('click', removeContainerPhoneNumber)
     containerPhoneNumber.children[1].addEventListener('click', removeContainerPhoneNumber)
 
-    document.querySelector('.two._1jJ70').append(containerPhoneNumber)
+    document.querySelector('.two').append(containerPhoneNumber)
     containerPhoneNumber.children[0].children[0].focus()
 }
